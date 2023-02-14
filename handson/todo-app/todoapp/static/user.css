@@ -1,0 +1,79 @@
+.user_name {
+    display: block;
+    /* height: 20px;
+    line-height: 2cm; */
+    height: auto;
+    width: auto;
+
+}
+
+.users {
+    /* display: flex;
+    flex-direction: column; */
+    height: 70%;
+    width: 70%;
+    margin-left: auto;
+    margin-right:auto; 
+    display: block;
+}
+
+.all_users {
+    /* height: 610px; */
+    width: 100%;
+    background:#fff;
+    border-radius:6px;/*ボックスの角*/
+    padding:20px;/*パンディング(枠と文字の幅)*/
+    padding-top:30px;
+    width:300px;
+    margin:50px auto;
+    box-shadow:15px 15px 0px rgba(0,0,0,.1);
+    display: block;
+}
+
+/* h2 {
+    margin-top: 10%;
+} */
+
+.juri {
+    background-color: #17a2b8;
+    height: 100%;
+    width: 100%;
+    position: fixed; /* 要素の位置を固定する */
+    top: 0; /* 基準の位置を画面の一番上に指定する */
+    left: 0; /* 基準の位置を画面の一番左に指定する */
+    margin: 0; /* 要素の余白を０にする */
+}
+
+.suki {
+    height: 100vh;
+    width: 100vw;
+    background-color: #17a2b8;
+}
+
+/* body {
+    background-color: #17a2b8;
+} */
+
+.boku {
+    height: 70%;
+    width: 60%;
+    margin: auto;
+    padding: 10%;
+}
+
+.watasimo {
+    height: 25px;
+
+}
+
+.kirai {
+    width: 100%;
+    background:#fff;
+    border-radius:6px;/*ボックスの角*/
+    padding:20px;/*パンディング(枠と文字の幅)*/
+    padding-top:30px;
+    width:px;
+    margin:50px auto;
+    box-shadow:15px 15px 0px rgba(0,0,0,.1);
+    display: block;
+}

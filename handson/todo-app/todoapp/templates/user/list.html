@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body %}
+<link rel="stylesheet" href="./../../static/user.css">
+<div class="suki">
+  <div class="boku">
+    <div class="kirai">
+      <h1>ユーザー一覧</h1>
+        {% for user in users %}
+        <div class="watasimo"><a href="{{ url_for('user_detail', user_id=user.id) }}">{{ user.name }}</a></div>
+        {% endfor %}
+        <!-- <a href="{{ url_for('user_create') }}">create user</a> -->
+      </div>  
+  </div>
+</div>     
+
+<!-- <link rel="stylesheet" href="./../../static/user.css">
+<div class='juri'>
+  <div class='all_users'>
+    <h2>Users</h2>
+
+    <div class="users">
+      {% for user in users %}
+      <div class="user_name"><a href="{{ url_for('user_detail', user_id=user.id) }}">{{ user.name }}</a></div>
+      {% else %}
+      <div><em>Unbelievable.  No users here so far</em></div>
+      {% endfor %}
+    </div>
+    <a href="{{ url_for('user_create') }}">create user</a>
+  </div>
+</div>     -->
+  
+{% endblock body %}

@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block head %}　<!--親テンプレート(base.html)のheadに入る-->
+<title>Task Master</title>　<!--titleはツールバーに表示される-->
+{% endblock %}
+
+{% block body %}
+<div id="shingo">
+    <script type="text/javascript" src="./../static/clock.js"></script>
+    <link rel="stylesheet" href="./../static/clock.css">
+    <canvas id="clockid"></canvas>
+    <div class="leftNavigation bg-info" >
+        <h2>todolist</h2>
+        <div class="btn-nav">
+            <a class="config " href="{{ url_for('user_detail', user_id = session['user_id']) }}"　data-toggle="tooltip" title="ユーザー詳細へ">
+                <img src="./../static/img/icon.png" width="70" height="70">
+            </a>
+            <a href="/todo/create_tab" class="tab"　data-toggle="tooltip" title="新規タブの作成">
+                <img src="./../static/img/tab.png" width="70" height="60">
+            </a>
+            <a class="calendar" href="/todo/calendar"　data-toggle="tooltip" title="カレンダーへ">
+                <img src="./../static/img/calendar.png" width="70" height="60">
+            <a  class="logout" href="/logout"　data-toggle="tooltip" title="ログアウト">
+                <img src="./../static/img/Logout.png" width="70" height="60">
+            </a>
+        </div>
+    </div>
+    <div id="izm">
+        <!--<h1 class="text-white bg-info">タスクリスト</h1>
+        <h2>{{ session['user_name'] }}さんのTodo</h2>-->
+    <!--    タブづくり-->
+        <div class="announce">
+            <img src="./../static/img/koke.png" width="90" height="80" class="koke">
+            <div class="speaking">
+                <p>本日が期限の未完了タスクは{{statistics}}個じゃ！</p>
+            </div>
+        </div>    
+        <div class="box" id="top">
+            <span class="box-title">ようこそ！！{{ session['user_name'] }}さん</span>
+            <ul class="nav nav-tabs" role="tablist" id="tab-nav">
+                {% for tab in tabs %}
+               <!-- <{{ tab.id }}>-->
+                <li class="nav-item " ><a href="#id{{ tab.id }}" class="nav-link" data-toggle="tab"  id="nav-top">{{ tab.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="tab-content">
+                {% for tab in tabs %}
+                <div id="id{{　tab.id　}}" class="tab-pane fade">
+                <div class="table-info table">       
+                {% if tasks|length < 1 %}
+<!--                <h4 style="text-align: center">タスクはありません</h4>-->
+                {% else %}
+                    
+                        {% for task in tasks %}
+                        {% if tab.id==task.tab_id %}
+                        <div>
+                            {%　if task.complete==True %}
+                            <div class="task">
+                                    <div class="check"　data-toggle="tooltip" title="未完了にする">
+                                        <a href="/todo/complete/{{task.id}}">
+                                            <img src="./../static/img/check.png" width="20" height="20"></a></div>
+                                    <div class="info{{task.id}}" data-toggle="tooltip" title="詳細を表示します。">
+                                        <img src='./../static/img/info.png' width="20" height="20" ></div>
+                                    <div class="task-name"><s class="fin">{{ task.content }}</s></div>
+    <!--                                <div class="task-status"><s class="fin">達成率：{{ task.status }}%</s></div>-->
+                                    <div class="task-dead">　<s class="fin">期限：{{ task.deadline }}</s></div>
+                                    <div class="task-btn">
+                                        <a class="btn btn-danger" href="/delete/{{task.id}}">削除</a> <!-Bootstrap4を使ってるHTML・CSS・JSのフレームワーク->
+                                        <a class="btn btn-primary" href="/edit/{{task.id}}">編集</a></div>　 <!-btnはボタンを作る->
+                            </div>
+                            <form action="/todo/memo/{{task.id}}" method="POST">
+                                <div class="memo{{task.id}}" style="display: none;">
+                                    <!-- <span class="memo-title">詳細</span> -->
+                                    <textarea  rows="5" cols="40" name="memo">{{task.memo}}</textarea>
+                                    <p><input type="submit"  value="保存" class="btn"></p>
+                                </div>
+                            </form>
+                            <script>
+                                $(document).ready(function(e){
+                                $('.info{{task.id}}').on('click',function(){
+                                    $('.memo{{task.id}}').stop().slideToggle();
+                                });
+                                })
+                            </script>
+                            {% else %}
+                            <div class="task">
+                                    <div class="check"　data-toggle="tooltip" title="完了にする">
+                                        <a href="/todo/complete/{{task.id}}">
+                                            <img src="./../static/img/check.png" width="20" height="20"></a></div>
+                                    <div class="info{{task.id}}"　data-toggle="tooltip" title="詳細を表示します。">
+                                        <img src='./../static/img/info.png' width="20" height="20" ></div>     
+                                    <div class="task-name">{{ task.content }}</div>
+<!--                                    <div class="task-status">達成率：{{ task.status }}%</div>-->
+                                    <div class="task-dead">　期限：{{ task.deadline }}</div>
+                                    <div class="task-btn">
+                                        <a class="btn btn-danger" href="/delete/{{task.id}}">削除</a> <!-Bootstrap4を使ってるHTML・CSS・JSのフレームワーク->
+                                        <a class="btn btn-primary" href="/edit/{{task.id}}">編集</a>　 <!-btnはボタンを作る->
+                                    </div>
+                            </div>
+                            <form action="/todo/memo/{{task.id}}" method="POST">
+                                <div class="memo{{task.id}}" id='openmemo'>
+                                    <!-- <span class="memo-title">詳細</span> -->
+                                    <textarea id="memo" rows="5" cols="40" name="memo">{{task.memo}}</textarea>
+                                    <p><input type="submit" id="save" value="保存" class="btn"></p>
+                                </div>
+                            </form>
+                            <script>
+                                $(document).ready(function(e){
+                                $('.info{{task.id}}').on('click',function(){
+                                    $('.memo{{task.id}}').stop().slideToggle();
+                                });
+                                })
+                            </script>
+                                       
+                            {% endif %}
+                        </div>
+                   
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                </div>
+
+
+                {% endfor %}
+
+                <h5>追加する？？</h5>
+                <script type="text/javascript" src="./../static/index.js"></script>
+                <div class="add">
+                    <form action="/todo" method="post"  text-white name='main_form' onSubmit="return check()">
+                    <tr>
+                        <input type="text" name="content" id="content" class="form-control bg-dark text-white"　width="50%"> <!-type：inputのフォームの種類をきめる->
+<!--                        <input type="number" name="status" id="status" min="0" max="100" step="10" width="5">-->
+                        <input type="date" name="deadline">
+                        <select name="tab" >
+<!--                            {% if tabtab == 0 %}-->
+<!--                                <option >タブを作れ</option >-->
+<!--                            {% else %}-->
+                                {% for tab in tabs %}
+                                <option value="{{ tab.id }}">{{ tab.name }}</option>
+                                {% endfor %}
+<!--                            {% endif %}-->
+                        </select>
+                    </tr>
+                    <input type="submit" value="新規追加" class="btn btn-success mysubmit" id="submit_btn">
+                    </form>
+                </div>
+                
+             </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+{% endblock %}

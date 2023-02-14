@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+  <link rel="stylesheet" href="./../static/main.css">
+  <form action="{{ url_for('login') }}" method=post>
+    <h1><span>Todo</span>Login</h1>　<!--span:一つの範囲として定義する-->
+    <input placeholder="Email Address" type=text name=email>
+    <input placeholder="Password" type=password name=password>
+    <button class="btn">Log in</button>
+  </form>
+
+  <footer>
+    <a href='/users/create/'><h5>新規ユーザー登録はこちらから</h5></a>
+  </footer>
+{% endblock %}

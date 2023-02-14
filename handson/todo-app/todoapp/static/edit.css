@@ -1,0 +1,17 @@
+.content {
+    background:#dee2e6;
+  border-radius:6px;/*ボックスの角*/
+  padding:20px;/*パンディング(枠と文字の幅)*/
+  padding-top:30px;
+  width:300px;
+  margin:50px auto;
+  box-shadow:15px 15px 0px rgba(0,0,0,.1);
+  position:fixed;
+    left: 500px;
+    top:10px;
+}
+
+#date {
+    height: 30px;
+    margin: 10%;
+}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>タブの作成</title>
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="./../static/create_tab.css">
+<div class="leftNavigation bg-info" >
+    <link rel="stylesheet" href="./../static/index.css">
+    <h2>todolist</h2>
+    <div class="btn-nav">
+        <a class="config " href="{{ url_for('user_detail', user_id = session['user_id']) }}">
+            <img src="./../static/img/icon.png" width="70" height="70">
+        </a>
+        <a href="/todo/create_tab" class="tab">
+            <img src="./../static/img/tab.png" width="70" height="60">
+        </a>
+        <a class="calendar" href="/todo/calendar">
+            <img src="./../static/img/calendar.png" width="70" height="60">
+        <a  class="logout" href="/logout">
+            <img src="./../static/img/Logout.png" width="70" height="60">
+        </a>
+    </div>
+</div>
+<div id="tab_all">
+    <div id='line'>
+    <h4>タブ一覧</h4>    
+    <table class="table" id="tab_table">
+        <tr>
+            <th>タブ</th>
+            <th>アクション</th>
+        </tr>
+        {% for　tab in tabs %}
+        <tr>
+            <td id="tab_name">{{ tab.name }}</td>
+            <td id="tab_btn">
+                <a class="btn btn-danger" href="/create_tab/delete/{{tab.id}}">削除</a>
+                <!-- <a class="btn btn-primary" href="/edit/{{tab.id}}">編集</a> -->
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h4 class="love">新規タブの作成</h4>
+    <script type="text/javascript" src="./../static/index.js"></script>
+        <div class="newtab" style="display: none;">
+            <form action="/todo/create_tab" method="post">
+                <input type="text" name="tab" width="50%">
+                <input type="submit" value="新規追加" class="btn btn-success">
+            </form>
+    </div>
+</div>
+<a href="/todo" class="home">
+    <img src="./../static/img/home.png" width="70" height="70">
+{% endblock %}

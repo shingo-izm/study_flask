@@ -1,0 +1,313 @@
+
+.leftNavigation{
+ width: 10%;
+    background-color: #17a2b8;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    line-height: 0%;
+}
+
+.config{
+
+width: 60px;
+height:60px;
+align-items: center;
+
+}
+
+
+
+.nav-item{
+margin-bottom:0px;
+}
+
+.tab-pane{
+    margin:0px;
+    line-height:0;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #dee2e6;
+    border: solid 1px #dee2e6;/*線*/
+    border-radius:0 0 10px 10px;/*角の丸み*/
+    border-top:none;
+    margin-bottom: 20px;
+}
+
+#done{
+color:#fff;
+}
+
+.table-info{
+line-height:1.5;
+background-color:#dee2e6;
+}
+
+#form {
+  background:#fff;
+  border-radius:6px;/*ボックスの角*/
+  padding:20px;/*パンディング(枠と文字の幅)*/
+  padding-top:30px;
+  width:300px;
+  margin:50px auto;
+  box-shadow:15px 15px 0px rgba(0,0,0,.1);
+}
+
+#shingo{
+    display: flex;
+    min-height: 100vh;
+}
+
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#main{
+    line-height: 0%;
+    text-align:center
+}
+
+span {
+  font-weight:200;
+}
+
+#top{
+    margin:120px 100px 40px;
+    line-height:1.5;
+
+}
+
+.task {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    font-size: 1em;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.box {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+
+}
+
+.box .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
+
+.btn-nav{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:15%;
+}
+
+.leftNavigation h2{
+    font-family: "Ravi Prakash", cursive;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logout{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3%;
+}
+
+.tab{
+    margin-top: 18%;
+}
+
+#izm{
+    width:90%;
+}
+
+.task .task-name{
+    float:left;
+    margin-left:10px;
+}
+
+.task div{
+    display: inline;
+}
+
+
+
+.task .task-btn{
+    float:right;
+    color: #fff;
+}
+
+
+.btn{
+    padding:8px;
+    line-height:1.5px;
+}
+
+.check{
+     float:left;
+}
+
+/* .info{
+    position: relative;
+    margin: 2em 0;
+    padding: 25px 10px 7px;
+    border: solid 2px #FFC107;
+}
+
+.info .info-title{
+    position: absolute;
+    display: inline-block;
+    top: -2px;
+    left: -2px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #FFC107;
+    color: #ffffff;
+    font-weight: bold;
+} */
+
+.box28 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.koke{
+    position: absolute;
+    top: 20px;
+    left: 150px;  
+}
+
+.speaking {
+    position: absolute;
+    top: 10px;
+    left: 250px; 
+    display: inline-block;
+    margin: 1.5em 0 1.5em 15px;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #FFF;
+    border: solid 3px #555;
+    box-sizing: border-box;
+    border-radius: 5px; 
+  }
+
+  .speaking::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -23px;
+    margin-top: -12px;
+    border: 12px solid transparent;
+    border-right: 12px solid #FFF;
+    z-index: 2;
+  } 
+
+  .speaking::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    margin-top: -14px;
+    border: 14px solid transparent;
+    border-right: 14px solid #555;
+    z-index: 1;
+  }
+
+  .speaking p {
+    margin: 0;
+    padding: 10px;
+  }
+
+  .add{
+      display: none;
+  }
+
+  #openmemo {
+    display: none;
+  }
+
+  .calendar {
+      margin-top: 10%;
+  }
+
+  .fin {
+      color: red;
+  }
+
+
+  h5 {
+      width: 18%;
+      margin: auto;
+  }
+
+  h5:hover {
+    border-bottom: 0.5px;  
+    border-bottom-style: solid ;
+    border-bottom-color: #A5B5B8;
+
+  }
+
+  s {
+      border-color: red;
+  }
+
+  .detail {
+      background:#dee2e6;
+      border-radius:6px;/*ボックスの角*/
+      padding:20px;/*パンディング(枠と文字の幅)*/
+      padding-top:30px;
+      width:300px;
+      margin:50px auto;
+      box-shadow:15px 15px 0px rgba(0,0,0,.1);
+      position:fixed;
+        left: 500px;
+        top:10px;
+  }
+
+  .detail-mail {
+      height: 70px;
+  }
+
+  .detail-delete {
+      height: 50px;
+      list-style-type:none;
+  }
+
+  .detail-edit {
+      height: 50px;
+      list-style-type:none;
+  }
+
+  .detail-all {
+      width: 90%;
+      background-image: url("./../static/img/white-bg-2.jpg");
+  }
+
+  /* .user-name {
+      color: royalblue;
+  } */
