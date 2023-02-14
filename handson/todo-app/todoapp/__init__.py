@@ -7,7 +7,7 @@ app.config.from_object('todoapp.config')
 db = SQLAlchemy(app)
 
 app.config.update({
-    'SECRET_KEY': 'shingo0718',
+    'SECRET_KEY': 'SECRET_KEY',
     'TESTING': True,
     'DEBUG': True,
     'OIDC_SCOPES': ['openid', 'email', 'profile'],
